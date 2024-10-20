@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player  # Ensure this import is correctly placed
 
 def main():
     pygame.init()
@@ -11,7 +12,9 @@ def main():
         
     # Setting fps to 60
     clock = pygame.time.Clock()
-    dt = 0
+    
+    # Create a Player object in the middle of the screen
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 20)  # 20 is the radius
     
     # Game loop
     running = True
@@ -24,6 +27,9 @@ def main():
 
         # Fill the screen with black
         screen.fill((0, 0, 0))
+
+        # Draw the player
+        player.draw(screen)  # Render the player on the screen
 
         # Update the display
         pygame.display.flip()
