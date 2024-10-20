@@ -4,15 +4,9 @@ from player import Player  # Ensure this import is correctly placed
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-    print("Starting asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
-        
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))        
     # Setting fps to 60
     clock = pygame.time.Clock()
-    
     # Create a Player object in the middle of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 20)  # 20 is the radius
     
@@ -23,7 +17,6 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
                 
-        dt = clock.tick(60) / 1000  # Update dt each frame
 
         # Update the player, passing the dt
         player.update(dt)
@@ -36,6 +29,9 @@ def main():
 
         # Update the display
         pygame.display.flip()
+
+        #limit the framerate to 60 FPS
+        dt = clock.tick(60) / 1000  # Update dt each frame
 
     pygame.quit()
 
