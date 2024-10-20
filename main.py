@@ -25,6 +25,9 @@ def main():
                 
         dt = clock.tick(60) / 1000  # Update dt each frame
 
+        # Update the player, passing the dt
+        player.update(dt)
+
         # Fill the screen with black
         screen.fill((0, 0, 0))
 
