@@ -17,6 +17,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
                 
+        dt = clock.tick(60) / 1000  # Update dt each frame
 
         # Update the player, passing the dt
         player.update(dt)
@@ -29,9 +30,6 @@ def main():
 
         # Update the display
         pygame.display.flip()
-
-        #limit the framerate to 60 FPS
-        dt = clock.tick(60) / 1000  # Update dt each frame
 
     pygame.quit()
 
